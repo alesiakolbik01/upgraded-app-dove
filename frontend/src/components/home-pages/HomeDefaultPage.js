@@ -19,7 +19,7 @@ export const HomeDefaultPage = () =>{
                     <div className="col-12 d-flex justify-content-center mt-sm-3">
                     </div>
                     <div className="col-12 h-40">
-                        <img src={logo} alt='' className={'big'}/>
+                        <img src={logo} alt='' className='logo-big'/>
                     </div>
                 </div>
             </div>

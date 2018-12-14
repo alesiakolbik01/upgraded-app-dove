@@ -55,12 +55,12 @@ class Navbar extends Component {
                     <div className='col-6'>
                         <Logo url={logo}/>
                     </div>
-                    <div className='col-5 d-flex justify-content-start align-items-end pl-0'>
+                    <div className='col-5 d-flex justify-content-start align-items-end pl-0 ml-1'>
                         <h4 className='text-info'>Dove</h4>
                     </div>
                 </div>
                 </Link>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <div className="navbar navbar-items">
                     {isAuthenticated ? authLinks : guestLinks}
                 </div>
             </nav>
