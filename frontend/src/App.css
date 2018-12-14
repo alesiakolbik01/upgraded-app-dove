@@ -625,14 +625,7 @@ background-size:2900%;
     animation: heart-burst .8s steps(28) 1;
 }
 
-@media (max-height: 700px) {
-    .app {
-        height: auto;
-    }
-    .logo-big{
-        width: 40%;
-    }
-}
+
 @media (max-width: 1176px) {
     .header-main-page{
         font-size:30px;
@@ -647,6 +640,14 @@ background-size:2900%;
     }
     .header h4{
         font-size: 20px;
+    }
+}
+@media (max-height: 700px) {
+    .app {
+        height: auto;
+    }
+    .logo-big{
+        width: 30%;
     }
 }
 @media (max-width: 590px) {
