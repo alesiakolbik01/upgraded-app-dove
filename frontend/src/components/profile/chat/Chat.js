@@ -17,18 +17,7 @@ import {
 
 class Chat extends React.PureComponent {
     static propTypes = {
-        // profiles: PropTypes.arrayOf(
-        //     PropTypes.shape({
-        //         firstName: PropTypes.string.isRequired,
-        //         lastName: PropTypes.string.isRequired,
-        //         gender: PropTypes.string.isRequired,
-        //         profession: PropTypes.string.isRequired,
-        //         aboutSelf: PropTypes.string,
-        //         search: PropTypes.string,
-        //         age: PropTypes.number.isRequired,
-        //         image: PropTypes.string.isRequired,
-        //     })
-        // ),
+        profiles: PropTypes.array.isRequired,
         socket: PropTypes.object.isRequired
     };
 

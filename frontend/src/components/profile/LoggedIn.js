@@ -11,18 +11,9 @@ import Modal from "./usersGallery/Modal";
 const io = require('socket.io-client');
 
 
-const socket = io();
+const socket = io('https://io.blooming-hollows-43408.herokuapp.com',{transports: [ 'polling' ]});
 
 class LoggedIn extends React.Component {
-    constructor() {
-        super();
-        this.auth = false;
-    };
-
-    state = {
-        alertInfo: false
-    };
-
     static propTypes = {
         auth: PropTypes.shape({
             isAuthenticated: PropTypes.bool.isRequired,
@@ -32,12 +23,16 @@ class LoggedIn extends React.Component {
             })
         }),
         blockUserInfo: PropTypes.object.isRequired,
+        errors: PropTypes.object.isRequired,
+        isModal: PropTypes.object.isRequired,
         getUserProfile: PropTypes.func.isRequired,
         getUsersList: PropTypes.func.isRequired,
         getUsersGallery: PropTypes.func.isRequired,
+        getLikes:PropTypes.func.isRequired,
+        getUserConversations:PropTypes.func.isRequired
     };
 
-    componentDidMount = () => {
+    componentDidMount(){
         if (this.props.auth) {
             this.props.getUserProfile(this.props.auth.user.id);
         }
@@ -63,7 +58,6 @@ class LoggedIn extends React.Component {
                 return false;
         }
     };
-
     render() {
         const {blockUserInfo, profile} = this.props.blockUserInfo;
         const {isModal, name, gender} = this.props.isModal;
