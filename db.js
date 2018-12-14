@@ -1,3 +1,3 @@
 module.exports = {
-    DB: 'mongodb://localhost:27017/dove-app'
+    DB:'mongodb://alesia:r42qyRu56Cj2t7W@ds147079.mlab.com:47079/heroku_0thmrkj2'
 };
