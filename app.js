@@ -9,12 +9,13 @@ const chat = require('./routes/chat');
 const SocketIo = require('socket.io');
 const path = require('path');
 
-const http = require('http')
+const http = require('http');
 const app = express();
 const server = http.createServer(app);
 
-const socketEvents = require('./lib/socketEvents')(io);
 const io = new SocketIo(server);
+const socketEvents = require('./lib/socketEvents')(io);
+
 server.listen(3000);
 
 
