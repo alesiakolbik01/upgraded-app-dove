@@ -14,7 +14,7 @@ const http = require('http').Server(app);
 const io = new SocketIo(http);
 const socketEvents = require('./lib/socketEvents')(io);
 
-app.use(express.static(path.resolve(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.static('/uploads'));
 
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
@@ -35,8 +35,8 @@ app.use('/api/chat', passport.authenticate('jwt', {session: false}), chat);
 
 const PORT = process.env.PORT || 5000;
 
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname,'frontend','build','index.html'));
+app.get('/ *', (req, res) => {
+    res.sendFile(path.join(__dirname ,'build','index.html'));
 });
 
 http.listen(PORT, function(){
