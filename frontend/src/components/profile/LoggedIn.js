@@ -11,7 +11,7 @@ import Modal from "./usersGallery/Modal";
 const io = require('socket.io-client');
 
 
-const socket = io(':3000');;
+const socket = io();
 
 class LoggedIn extends React.Component {
     static propTypes = {
