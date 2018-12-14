@@ -48,7 +48,8 @@ class Chat extends React.PureComponent {
     };
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.message && nextProps.message._id !== this.props.message._id) {
+        if (nextProps.message) {
+            if(nextProps.message._id === this.props.message._id)return;
             const socket = this.props.socket;
             socket.emit('chat message', nextProps.message);
             this.props.addMessage(nextProps.message);
