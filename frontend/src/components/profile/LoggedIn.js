@@ -11,7 +11,7 @@ import Modal from "./usersGallery/Modal";
 const io = require('socket.io-client');
 
 
-const socket = io.connect();
+const socket = io.connect('http://localhost:5000');
 
 class LoggedIn extends React.Component {
     constructor() {
@@ -41,7 +41,6 @@ class LoggedIn extends React.Component {
         if (this.props.auth) {
             this.props.getUserProfile(this.props.auth.user.id);
         }
-
     };
 
     handleClickNav = (e) => {
@@ -120,7 +119,6 @@ class LoggedIn extends React.Component {
 const mapStateToProps = (state) => ({
     auth: state.auth,
     blockUserInfo: state.blockUserInfo,
-    conversation:state.messages.conversation,
     errors:state.errors,
     isModal: state.modal
 });
