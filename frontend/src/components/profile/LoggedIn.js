@@ -9,8 +9,6 @@ import {getLikes} from '../../actions/setLikeOnProfile';
 import {Loading} from "./Loading";
 import Modal from "./usersGallery/Modal";
 const io = require('socket.io-client');
-
-
 const socket = io();
 
 class LoggedIn extends React.Component {
