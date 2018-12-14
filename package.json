@@ -4,7 +4,6 @@
   "main": "index.js",
   "scripts": {
     "devserver": "nodemon app",
-    "debug": "node --inspect-brk app",
     "start": "node app.js",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
