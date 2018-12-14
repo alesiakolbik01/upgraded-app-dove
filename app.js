@@ -9,16 +9,10 @@ const chat = require('./routes/chat');
 const SocketIo = require('socket.io');
 const path = require('path');
 
-const http = require('http');
 const app = express();
-const server = http.createServer(app);
-
-const io = new SocketIo(server);
+const http = require('http').Server(app);
+const io = new SocketIo(http);
 const socketEvents = require('./lib/socketEvents')(io);
-
-server.listen(3000);
-
-
 
 app.use(express.static(path.join(__dirname, 'frontend/build')));
 app.use(express.static('/uploads'));

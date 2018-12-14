@@ -11,7 +11,7 @@ import Modal from "./usersGallery/Modal";
 const io = require('socket.io-client');
 
 
-const socket = io.connect('https://blooming-hollows-43408.herokuapp.com:3080');
+const socket = io(':3000');;
 
 class LoggedIn extends React.Component {
     static propTypes = {
