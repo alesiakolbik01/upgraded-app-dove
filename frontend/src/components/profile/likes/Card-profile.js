@@ -13,12 +13,9 @@ export default class CardProfile extends React.Component{
             age:PropTypes.number.isRequired,
         })
     };
-    // handleClick=()=>{
-    //     this.props.clickProfile(this.props.profile.conversation, this.props.profile.user);
-    // };
     render(){
-        return( //onClick={this.handleClick}
-            <div className="card rounded m-1" style={{width:'1rem',display:'inline-block'}}>
+        return(
+            <div className="profile card rounded m-1" style={{width:'1rem',display:'inline-block'}}>
                 <div className="card-img-top card-item">
                     <img  src={this.props.profile.image} className='card-img-top' alt=""/>
                 </div>

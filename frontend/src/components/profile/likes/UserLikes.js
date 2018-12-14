@@ -20,9 +20,6 @@ class UserLikes extends React.PureComponent {
             })
         )
     };
-    // handleClickProfile = (chatID, userId)=>{
-    //     this.props.openChat(chatID, userId);
-    // };
     render(){
         return(
             <div style={{position: 'relative'}} className='col-9 mb-2 height-600'>

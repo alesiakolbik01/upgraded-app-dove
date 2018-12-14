@@ -60,6 +60,7 @@ class Chat extends React.PureComponent {
         if(nextProps.currentChatId !== this.props.currentChatId){
             const socket = this.props.socket;
             socket.emit('join room', nextProps.currentChatId);
+            console.log('user join room' + nextProps.currentChatId)
         }
     }
 
