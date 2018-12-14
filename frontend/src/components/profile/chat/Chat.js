@@ -65,14 +65,11 @@ class Chat extends React.PureComponent {
     }
 
     handleSendMessage = (msg) => {
-        console.log(this.props.currentChatId);
-        console.log(msg);
         if (!this.props.currentChatId) return;
         this.props.sendMessage(this.props.currentChatId, msg);
     };
 
     render() {
-        console.log(this.props.profiles);
         const userArr = this.props.profiles.filter(profile => {
             return (profile.user === this.state.activeTab)
         });
