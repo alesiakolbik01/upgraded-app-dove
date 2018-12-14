@@ -11,7 +11,7 @@ import Modal from "./usersGallery/Modal";
 const io = require('socket.io-client');
 
 
-const socket = io.connect('http://localhost:5000');
+const socket = io.connect();
 
 class LoggedIn extends React.Component {
     constructor() {
@@ -38,21 +38,11 @@ class LoggedIn extends React.Component {
     };
 
     componentDidMount = () => {
-        // if(this.props.conversation.length !== 0){
-        //     for(let i = 0;i<this.props.conversation.length;i++){
-        //         socket.emit('join room', this.props.conversation[i])
-        //     }
-        // }
         if (this.props.auth) {
             this.props.getUserProfile(this.props.auth.user.id);
         }
 
     };
-    componentWillReceiveProps(nextProps, nextContext) {
-        if(nextProps.errors === 'Unauthorized'){
-            //this.props.logoutUser();
-        }
-    }
 
     handleClickNav = (e) => {
         e.preventDefault();
