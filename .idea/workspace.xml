@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="392b9e0a-0ae3-44f6-9fcc-e2185d6c32d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/home-pages/HomeDefaultPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/home-pages/HomeDefaultPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/nav/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/nav/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/profile/usersGallery/ProfileInGallery.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/profile/usersGallery/ProfileInGallery.js" afterDir="false" />
-    </list>
+    <list default="true" id="392b9e0a-0ae3-44f6-9fcc-e2185d6c32d1" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -232,12 +226,12 @@
       <option name="presentableId" value="Default" />
       <updated>1544790692268</updated>
       <workItem from="1544790695291" duration="1473000" />
-      <workItem from="1544792335530" duration="28518000" />
+      <workItem from="1544792335530" duration="28847000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29991000" />
+    <option name="totallyTimeSpent" value="30320000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
