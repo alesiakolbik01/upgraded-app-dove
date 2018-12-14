@@ -48,20 +48,15 @@ class Chat extends React.PureComponent {
     };
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.message) {
+        if (nextProps.message._id !== this.props.message._id) {
             const socket = this.props.socket;
             socket.emit('chat message', nextProps.message);
-            this.props.clearMessage();
             this.props.addMessage(nextProps.message);
-        }
-        if (nextProps.messageSendError) {
-            alert('Сообщение не было доставлено.Ошибка: ' + this.props.messageSendError)
         }
         if(nextProps.currentChatId !== this.props.currentChatId){
             const socket = this.props.socket;
             socket.emit('leave room', this.props.currentChatId);
             socket.emit('join room', nextProps.currentChatId);
-            console.log('user join room' + nextProps.currentChatId)
         }
     }
 
@@ -118,7 +113,6 @@ const mapStateToProps = (state) => ({
     user: state.blockUserInfo.profile.user._id,
     currentChatId: state.blockUserInfo.activeChat,
     message:state.messages.message
-
 });
 
 export default connect(mapStateToProps, {
