@@ -56,15 +56,12 @@ export const clearMessage = () => dispatch => {
 };
 
 export const getChatHistory = (chatID) => dispatch => {
-    dispatch({
-        type: SET_CHAT_HISTORY,
-        payload: []
-    });
-    axios.get(`/api/chat/${chatID}`)
+  axios.get(`/api/chat/${chatID}`)
         .then(res => {
                 dispatch({
                     type: SET_CHAT_HISTORY,
-                    payload: res.data
+                    payload: res.data.chat,
+                    chatId:chatID
                 });
             }
         )
@@ -73,7 +70,7 @@ export const getChatHistory = (chatID) => dispatch => {
                 type: GET_ERRORS,
                 payload: err.response.data
             })
-        });
+        })
 };
 
 export const openChat = (chatID) => dispatch => {

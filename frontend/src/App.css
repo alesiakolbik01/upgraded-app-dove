@@ -2,6 +2,7 @@
 
 html, body, #root, .router {
     height: 100%;
+    width: 100%;
 }
 
 .app {
@@ -24,7 +25,7 @@ html, body, #root, .router {
     width: 80px;
 }
 
-.big {
+.logo-big {
     width: 200px;
     transform: rotate(293deg);
 }
@@ -35,7 +36,7 @@ html, body, #root, .router {
 
 .header-main-page {
     margin-top: 50px;
-    font-size: 95px;
+    font-size: 65px;
 }
 
 .wrapper-form {
@@ -647,7 +648,7 @@ background-size:2900%;
         height: auto;
     }
     .logo-big{
-        width: 30%;
+        width: 12%;
     }
 }
 @media (max-width: 590px) {

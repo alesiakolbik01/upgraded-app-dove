@@ -45,6 +45,10 @@ class MessagesBlock extends React.PureComponent {
     }
 
     render() {
+        let chatHistory = [];
+        if(this.props.chatId === this.props.chatHistoryId){
+            chatHistory = this.props.chatHistory
+        }
         return (
             <div className="col border border-grey border-top-0 border-bottom-0">
                 {this.props.activeTab?
@@ -56,8 +60,8 @@ class MessagesBlock extends React.PureComponent {
                 }
                 <div className='chat row'>
                     <div className='col panel'>
-                    {(this.props.chatHistory.length !== 0 && this.props.activeTab) &&
-                    (this.props.chatHistory.map(message => {
+                    {(chatHistory.length !== 0 && this.props.activeTab) &&
+                    (chatHistory.map(message => {
                         return (<Message key={message._id}
                                          text={message.body}
                                          user={message.author._id || message.author}

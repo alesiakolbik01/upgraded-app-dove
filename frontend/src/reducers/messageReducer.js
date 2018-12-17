@@ -21,9 +21,10 @@ export default function messages(state = initialState, action) {
                 data: [...state.data, action.message]
             };
         case SET_CHAT_HISTORY:
-            const messages = action.payload.chat.reverse();
+            const messages = action.payload.reverse();
             return {...state,
-                data: messages
+                data: messages,
+                id: action.chatId
             };
         case SEND_MESSAGES_SUCCESS:
             return {...state,

@@ -18,21 +18,25 @@ import {
 class Chat extends React.PureComponent {
     static propTypes = {
         profiles: PropTypes.array.isRequired,
-        socket: PropTypes.object.isRequired
+        socket: PropTypes.object.isRequired,
     };
 
     constructor(props) {
         super(props);
         this.state = {
-            activeTab: null,
+            activeTab: null
         };
     }
 
     componentDidMount() {
         const socket = this.props.socket;
         socket.on('new bc message', function (msg) {
+            if(msg.conversationId !== this.props.currentChatId)return;
             this.props.receiveRawMessage(msg);
         }.bind(this));
+        if(this.props.currentChatId){
+            socket.emit('join room', this.props.currentChatId);
+        }
     }
 
     handleClickTab = (id) => {
@@ -49,18 +53,19 @@ class Chat extends React.PureComponent {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.message) {
-            if(this.props.message){
-                if(nextProps.message._id === this.props.message._id)return;
-            }
+            if(this.props.message && nextProps.message._id === this.props.message._id)return;
             const socket = this.props.socket;
             socket.emit('chat message', nextProps.message);
             this.props.addMessage(nextProps.message);
         }
         if(nextProps.currentChatId !== this.props.currentChatId){
             const socket = this.props.socket;
-            socket.emit('leave room', this.props.currentChatId);
             socket.emit('join room', nextProps.currentChatId);
         }
+    }
+    componentWillUnmount() {
+        const socket = this.props.socket;
+        socket.emit('leave room',this.props.currentChatId);
     }
 
     handleSendMessage = (msg) => {
@@ -95,7 +100,7 @@ class Chat extends React.PureComponent {
                             </div>
                         </div>
                     </div>
-                    <MessagesBlock chatId={this.state.chatId}
+                    <MessagesBlock chatId={this.props.currentChatId}
                                    userName={profile.firstName}
                                    id={profile.user}
                                    image={profile.image}
@@ -103,6 +108,7 @@ class Chat extends React.PureComponent {
                                    activeTab={this.state.activeTab}
                                    onSendMessage={this.handleSendMessage}
                                    chatHistory={this.props.chatHistory}
+                                   chatHistoryId ={this.props.chatHistoryId}
                     />
                 </div>
             </div>
@@ -113,6 +119,7 @@ class Chat extends React.PureComponent {
 const mapStateToProps = (state) => ({
     profiles: state.blockUserInfo.matches,
     chatHistory: state.messages.data,
+    chatHistoryId: state.messages.id,
     user: state.blockUserInfo.profile.user._id,
     currentChatId: state.blockUserInfo.activeChat,
     message:state.messages.message
