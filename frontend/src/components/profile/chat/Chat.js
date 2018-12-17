@@ -32,6 +32,7 @@ class Chat extends React.PureComponent {
         const socket = this.props.socket;
         socket.on('new bc message', function (msg) {
             if(msg.conversationId !== this.props.currentChatId)return;
+            if(this.props.message && msg._id === this.props.message._id)return;
             this.props.receiveRawMessage(msg);
         }.bind(this));
         if(this.props.currentChatId){
