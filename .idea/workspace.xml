@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="392b9e0a-0ae3-44f6-9fcc-e2185d6c32d1" name="Default Changelist" comment="finish">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/actions/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/profile/chat/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/profile/chat/Chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/profile/chat/MessagesBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/profile/chat/MessagesBlock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/messageReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/messageReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/socketEvents.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/socketEvents.js" afterDir="false" />
-    </list>
+    <list default="true" id="392b9e0a-0ae3-44f6-9fcc-e2185d6c32d1" name="Default Changelist" comment="finish" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -125,25 +116,12 @@
             <path>
               <item name="dove" type="b2602c69:ProjectViewProjectNode" />
               <item name="dove" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dove" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dove" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dove" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dove" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="reducers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dove" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dove" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dove" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dove" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -186,7 +164,7 @@
       <workItem from="1544792335530" duration="31439000" />
       <workItem from="1545040458652" duration="11974000" />
       <workItem from="1545055393418" duration="457000" />
-      <workItem from="1545056064161" duration="11486000" />
+      <workItem from="1545056064161" duration="11728000" />
     </task>
     <task id="LOCAL-00001" summary="finish">
       <created>1544827514879</created>
@@ -206,7 +184,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56829000" />
+    <option name="totallyTimeSpent" value="57071000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
