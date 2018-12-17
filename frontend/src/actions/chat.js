@@ -56,6 +56,10 @@ export const clearMessage = () => dispatch => {
 };
 
 export const getChatHistory = (chatID) => dispatch => {
+    dispatch({
+        type: SET_CHAT_HISTORY,
+        payload: []
+    });
     axios.get(`/api/chat/${chatID}`)
         .then(res => {
                 dispatch({
