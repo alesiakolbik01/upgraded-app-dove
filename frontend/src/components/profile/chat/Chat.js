@@ -24,20 +24,23 @@ class Chat extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            activeTab: null
+            activeTab: null,
         };
     }
+    nextMsgId = null;
 
     componentDidMount() {
         const socket = this.props.socket;
         socket.on('new bc message', function (msg) {
             if(msg.conversationId !== this.props.currentChatId)return;
-            if(this.props.message && msg._id === this.props.message._id)return;
+            if(this.nextMsgId === msg._id)return;
             this.props.receiveRawMessage(msg);
+            this.nextMsgId = msg._id;
         }.bind(this));
         if(this.props.currentChatId){
             socket.emit('join room', this.props.currentChatId);
         }
+
     }
 
     handleClickTab = (id) => {
