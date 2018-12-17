@@ -50,6 +50,7 @@ class Chat extends React.PureComponent {
     componentWillReceiveProps(nextProps) {
         if (nextProps.message) {
             if(this.props.message){
+                console.log(nextProps.message);
                 if(nextProps.message._id === this.props.message._id)return;
             }
             const socket = this.props.socket;
@@ -76,6 +77,7 @@ class Chat extends React.PureComponent {
         if (!profile) {
             profile = {};
         }
+        console.log(this.props.chatHistory);
         return (
             <div className='col border-left border-grey'>
                 <div className='row border-bottom border-grey'>
