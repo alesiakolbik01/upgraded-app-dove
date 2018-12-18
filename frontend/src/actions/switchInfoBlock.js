@@ -48,6 +48,21 @@ export const getUserProfile = (userId) => (dispatch) => {
             });
         });
 };
+export const refreshUserProfile = (userId) => (dispatch) => {
+    axios.get(`/api/profiles/${userId}`)
+        .then(res => {
+            dispatch({
+                type: UPDATE_USER_PROFILE,
+                payload: res.data
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            });
+        });
+};
 
 export const getUsersList = () => (dispatch) => {
     axios.get(`/api/profiles?matched=true`)

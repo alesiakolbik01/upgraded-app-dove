@@ -3,7 +3,7 @@ import PropTypes from 'proptypes';
 import {Link, withRouter} from 'react-router-dom';
 import ContentBlock from './ContentBlock.js';
 import connect from 'react-redux/es/connect/connect';
-import {getUserProfile, getUsersGallery, getUsersList} from '../../actions/switchInfoBlock';
+import {getUserProfile, getUsersGallery, getUsersList, refreshUserProfile} from '../../actions/switchInfoBlock';
 import {getUserConversations} from '../../actions/chat';
 import {getLikes} from '../../actions/setLikeOnProfile';
 import {Loading} from "./Loading";
@@ -47,6 +47,7 @@ class LoggedIn extends React.Component {
                 this.props.getUsersList();
                 break;
             case 'usersGallery':
+                this.props.refreshUserProfile(this.props.auth.user.id);
                 this.props.getUsersGallery();
                 break;
             case 'userLikes':
@@ -120,5 +121,6 @@ export default connect(mapStateToProps, {
     getUsersList,
     getUsersGallery,
     getLikes,
-    getUserConversations
+    getUserConversations,
+    refreshUserProfile
 })(withRouter(LoggedIn));

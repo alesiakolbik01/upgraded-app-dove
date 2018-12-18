@@ -63,7 +63,8 @@ export default function (state = initialState, action) {
             const updateProfile = Object.assign({conversation: action.payload}, state.matches[index]);
             return {
                 ...state,
-                matches: [...state.matches.slice(0, index), updateProfile, ...state.matches.slice(index + 1)]
+                matches: [...state.matches.slice(0, index), updateProfile, ...state.matches.slice(index + 1)],
+                activeChat:action.payload
             };
         default:
             return state;

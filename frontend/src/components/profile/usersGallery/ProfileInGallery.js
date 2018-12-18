@@ -31,6 +31,7 @@ class ProfileInGallery extends React.PureComponent {
     handleBtnLike = () => {
         this.props.setLike(this.props.profile._id);
         this.setState({ like:true});
+        console.log("user likes "+this.props.currentUserProfile.likes);
         const match = this.checkMatches(this.props.currentUserProfile.likes, this.props.profile._id);
         if(match){
             this.props.saveMatches(match);

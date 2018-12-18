@@ -33,6 +33,14 @@ app.use('/api/users', users);
 app.use('/api/profiles', passport.authenticate('jwt', {session: false}), profiles);
 app.use('/api/chat', passport.authenticate('jwt', {session: false}), chat);
 
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'frontend/build/index.html'), function(err) {
+        if (err) {
+            res.status(500).send(err)
+        }
+    })
+});
+
 const PORT = process.env.PORT || 5000;
 
 server.listen(PORT, function(){
