@@ -36,12 +36,14 @@ class Register extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        const firstName = this.state.firstName.trim();
+        const lastName = this.state.lastName.trim();
         const user = {
             name: this.state.name,
             password: this.state.password,
             password_confirm: this.state.password_confirm,
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
+            firstName: firstName,
+            lastName: lastName,
             age:this.state.age
         };
         const formData = new FormData();

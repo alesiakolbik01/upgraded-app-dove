@@ -20,10 +20,10 @@ module.exports = function validateRegisterInput(data) {
     if(!Validator.isLength(data.lastName, { min: 2, max: 30 })) {
         errors.lastName = 'Value must be between 2 to 30 chars';
     }
-    if(!Validator.isAlpha(data.firstName.trim(), ['ru-RU'])) {
+    if(!Validator.isAlpha(data.firstName, ['ru-RU'])) {
         errors.firstName = 'Value must have only RU letters (А-я)';
     }
-    if(!Validator.isAlpha(data.lastName.trim(), ['ru-RU'])) {
+    if(!Validator.isAlpha(data.lastName, ['ru-RU'])) {
         errors.lastName = 'Value must have only RU letters (А-я)';
     }
 
