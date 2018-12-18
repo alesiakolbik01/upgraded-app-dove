@@ -35,9 +35,6 @@ module.exports = function validateRegisterInput(data) {
     if (Validator.isEmpty(data.profession)) {
         errors.profession = isReq;
     }
-    if (!Validator.isLength(data.profession, {min: 2, max: 30})) {
-        errors.profession = 'Value must be between 2 to 30 chars';
-    }
     if (!Validator.isLength(data.firstName, {min: 2, max: 30})) {
         errors.firstName = 'Value must be between 2 to 30 chars';
     }
