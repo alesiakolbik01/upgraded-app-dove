@@ -40,8 +40,8 @@ class Register extends Component {
             name: this.state.name,
             password: this.state.password,
             password_confirm: this.state.password_confirm,
-            firstName: this.state.firstName.trim(),
-            lastName: this.state.lastName.trim(),
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
             age:this.state.age
         };
         const formData = new FormData();
