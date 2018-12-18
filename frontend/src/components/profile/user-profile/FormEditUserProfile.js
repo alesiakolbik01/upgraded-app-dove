@@ -119,9 +119,9 @@ class FormEditUserProfile extends React.Component {
                                 ref={(input) => {
                                     this.userSearch = input
                                 }}>
+                            <option>Друга</option>
                             <option>Женщину</option>
                             <option>Мужчину</option>
-                            <option>Друга</option>
                         </select>
                     </div>
                     <div className="form-group custom-file">
