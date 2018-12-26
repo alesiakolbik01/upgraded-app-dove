@@ -9,7 +9,8 @@ class FormEditUserProfile extends React.Component {
    constructor() {
         super();
         this.state = {
-            image: null
+            image: null,
+            errors: {}
         };
     };
     static propTypes = {
@@ -52,11 +53,17 @@ class FormEditUserProfile extends React.Component {
     handleCloseForm = ()=>{
         this.props.closeForm();
     };
+    componentWillReceiveProps(nextProps, nextContext) {
+        if (nextProps.errors) {
+            this.setState({
+                errors: nextProps.errors
+            });
+        }
+    }
 
     render() {
         const user = this.props.profile || {};
-        const { errors } = this.props;
-        console.log(errors);
+        const {errors} = this.state;
         return (
                 <form>
                     <div className="form-group">
@@ -147,6 +154,7 @@ class FormEditUserProfile extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
+    errors: state.errors
 });
 
 export default connect(mapStateToProps, {updateUserProfile})(withRouter(FormEditUserProfile));

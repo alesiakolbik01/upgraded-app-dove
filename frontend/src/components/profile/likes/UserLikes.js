@@ -28,9 +28,11 @@ class UserLikes extends React.PureComponent {
                 this.props.profiles.map(item =>{
                      let profile = {firstName:item.firstName, lastName:item.lastName,
                          age:item.age,profession:item.profession,search:item.search,image:item.image, conversation:item.conversation};
-                return <CardProfile key={item._id} profile={profile}/>   //clickProfile={this.handleClickProfile}
+                return <CardProfile key={item._id} profile={profile}/>
             })}
-                {(this.props.profiles.length === 0) && <h5 className='text-center text-secondary text-uppercase mt-5 ml-5'>Здесь пока ничего нет</h5>}
+                {(this.props.profiles.length === 0) && <div className='col'>
+                    <h5 className='text-center text-secondary text-uppercase mt-5 ml-5'>Здесь пока ничего нет</h5>
+                </div>}
                 </div>
             </div>
         )

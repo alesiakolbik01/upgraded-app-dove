@@ -8,6 +8,7 @@ const profileService = require('../lib/services/profile');
 const hash = require('../lib/hash');
 const validateRegisterInput = require('../validation/register');
 const validateLoginInput = require('../validation/login');
+const file = require('../lib/file');
 
 const SECRET = '280a6cde-5919-4b49-bb21-fbc6e9d30251';
 const UPLOAD_FOLDER = 'uploads/';
@@ -25,7 +26,7 @@ const upload = multer({storage: storage});
 
 router.post('/register', upload.single('file'), async function (req, res) {
     const userData = JSON.parse(req.body.user);
-    userData.image = req.file;
+    userData.file = req.file;
 
     const {errors, isValid} = validateRegisterInput(userData);
 
@@ -38,7 +39,7 @@ router.post('/register', upload.single('file'), async function (req, res) {
         if (user) {
             return res.status(400).json({name: 'User name already exists'});
         } else {
-            userData.imagePath = userData.image.filename;
+            userData.image = file.toBase64(userData.file.filename);
             userData.password = await hash.generate(userData.password);
             const user = await userService.save(userData);
             const profile = await profileService.save(user._id, userData);

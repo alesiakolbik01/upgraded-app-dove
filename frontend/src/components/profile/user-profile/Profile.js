@@ -8,8 +8,7 @@ import {getUserProfile} from '../../../actions/switchInfoBlock';
 
 class Profile extends React.PureComponent {
     state = {
-        formEdit: false,
-        errors: {}
+        formEdit: false
     };
     static propTypes = {
         profile: PropTypes.shape({
@@ -22,9 +21,7 @@ class Profile extends React.PureComponent {
             age:PropTypes.number.isRequired,
             image:PropTypes.string.isRequired
         }),
-        errors:PropTypes.object.isRequired,
         formIsValid:PropTypes.bool.isRequired,
-
     };
 
     handleOpenForm = () => {
@@ -47,7 +44,6 @@ class Profile extends React.PureComponent {
 
     render() {
         const profile = this.props.profile;
-        const {errors} = this.state;
         return (
             <div className='col-9 height-600'>
                 <div className="col">
@@ -58,8 +54,7 @@ class Profile extends React.PureComponent {
                         <div className='col'>
                             {(this.state.formEdit) ?
                                 (<FormEditUserProfile profile={profile}
-                                                      closeForm={this.handleCloseForm}
-                                                      errors={errors}/>)
+                                                      closeForm={this.handleCloseForm}/>)
                                 :
                                 (
                                     <div>
@@ -80,7 +75,6 @@ class Profile extends React.PureComponent {
 
 const mapStateToProps = (state) => ({
     profile: state.blockUserInfo.profile,
-    errors: state.errors,
     formIsValid: state.formIsValid
 });
 

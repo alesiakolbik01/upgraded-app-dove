@@ -6,6 +6,7 @@ const profileService = require('../lib/services/profile');
 const multer = require('multer');
 const validateProfileInput = require('../validation/profile');
 const UPLOAD_FOLDER = 'uploads/';
+const file = require('../lib/file');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -50,7 +51,7 @@ router.get('/:userId', async function (req, res) {
 
 router.put('/:id', upload.single('file'), async function (req, res) {
     const profileData = JSON.parse(req.body.profile);
-    profileData.image = req.file;
+    profileData.file = req.file;
 
     const {errors, isValid} = validateProfileInput(profileData);
 
@@ -58,8 +59,8 @@ router.put('/:id', upload.single('file'), async function (req, res) {
         return res.status(400).json(errors);
     }
     try {
-        if (profileData.image) {
-            profileData.imagePath = profileData.image.filename;
+        if (profileData.file) {
+            profileData.image = file.toBase64(profileData.file.filename);
         }
         const profile = await profileService.update({_id: req.params.id}, profileData);
 

@@ -14,7 +14,7 @@ const ProfileSchema = new Schema({
         type: Number,
         required: true
     },
-    imagePath: {
+    image: {
         type: String,
         required: true
     },
