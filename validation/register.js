@@ -8,7 +8,7 @@ module.exports = function validateRegisterInput(data) {
     data.firstName = !isEmpty(data.firstName) ? data.firstName : '';
     data.password = !isEmpty(data.password) ? data.password : '';
     data.password_confirm = !isEmpty(data.password_confirm) ? data.password_confirm : '';
-    data.image = !isEmpty(data.image) ? data.image : '';
+    data.file = !isEmpty(data.file) ? data.file : '';
     data.age = !isEmpty(data.age) ? data.age : '';
 
     if(!Validator.isLength(data.name, { min: 2, max: 30 })) {
@@ -59,13 +59,13 @@ module.exports = function validateRegisterInput(data) {
         errors.age = 'Age must be between 18 to 100';
     }
 
-    if(!data.image) {
+    if(!data.file) {
         errors.image = 'Photo is required';
     }
-    if(data.image.size >= 2000000) {
+    if(data.file.size >= 2000000) {
         errors.image = 'Size of photo should be till 2 mb';
     }
-    if(data.image.mimetype !== 'image/jpeg') {
+    if(data.file.mimetype !== 'image/jpeg') {
         errors.image = 'Type of photo should be JPEG';
     }
 
