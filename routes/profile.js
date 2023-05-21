@@ -3,20 +3,8 @@ const router = express.Router();
 
 const userService = require('../lib/services/user');
 const profileService = require('../lib/services/profile');
-const multer = require('multer');
 const validateProfileInput = require('../validation/profile');
-const UPLOAD_FOLDER = 'uploads/';
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, UPLOAD_FOLDER)
-    },
-    filename: function (req, file, cb) {
-        cb(null, `${Date.now()}_${file.originalname}`);
-    }
-});
-
-const upload = multer({storage: storage});
 
 router.get('/', async function (req, res) {
     let profiles;
@@ -33,24 +21,29 @@ router.get('/', async function (req, res) {
 });
 
 router.get('/:userId', async function (req, res) {
-    const user = await userService.findOne({_id: req.params.userId});
+    try
+    {
+        const user = await userService.findOne({_id: req.params.userId});
 
-    if (user) {
-        const profile = await profileService.findOne({_id: user.profile._id});
+        if (user) {
+            const profile = await profileService.findOne({_id: user.profile._id});
 
-        if (profile) {
-            return res.status(200).json({profile});
+            if (profile) {
+                return res.status(200).json({profile});
+            }
+
+            return res.status(404).json({errors: 'Profile is not found'})
         }
-
-        return res.status(404).json({errors: 'Profile is not found'})
+    }
+    catch(er) {
+        console.log(er)
     }
 
     res.status(404).json({errors: 'User is not found'})
 });
 
-router.put('/:id', upload.single('file'), async function (req, res) {
-    const profileData = JSON.parse(req.body.profile);
-    profileData.image = req.file;
+router.put('/:id', async function (req, res) {
+    const profileData = req.body;
 
     const {errors, isValid} = validateProfileInput(profileData);
 
@@ -58,9 +51,7 @@ router.put('/:id', upload.single('file'), async function (req, res) {
         return res.status(400).json(errors);
     }
     try {
-        if (profileData.image) {
-            profileData.imagePath = profileData.image.filename;
-        }
+        profileData.imagePath = profileData.image;
         const profile = await profileService.update({_id: req.params.id}, profileData);
 
         res.status(200).json({profile});

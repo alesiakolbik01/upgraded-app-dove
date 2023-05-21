@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+@font-face {
+    font-family:  Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
+    src: url('./fonts/Segoe\ ui\ historic.ttf');
+    }
 
 html, body, #root, .router {
     height: 100%;
@@ -10,7 +14,7 @@ html, body, #root, .router {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-family: 'Roboto', serif;
+    font-family:  Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
 }
 
 #root {

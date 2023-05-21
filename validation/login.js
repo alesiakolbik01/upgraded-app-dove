@@ -5,8 +5,8 @@ module.exports = function validateLoginInput(data) {
     let errors = {};
     data.password = !isEmpty(data.password) ? data.password : '';
 
-    if(!Validator.isLength(data.password, {min: 6, max: 30})) {
-        errors.password = 'Password must have 6 chars';
+    if(!Validator.isLength(data.password, {min: 3, max: 30})) {
+        errors.password = 'Password must have 3 chars';
     }
 
     if(Validator.isEmpty(data.password)) {

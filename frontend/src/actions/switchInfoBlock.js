@@ -8,7 +8,6 @@ import {
     UPDATE_USER_PROFILE
 } from "./types";
 
-
 export const updateUserProfile = (id, formData) => dispatch => {
     axios.put(`/api/profiles/${id}`, formData)
         .then(res => {
@@ -48,6 +47,7 @@ export const getUserProfile = (userId) => (dispatch) => {
             });
         });
 };
+
 export const refreshUserProfile = (userId) => (dispatch) => {
     axios.get(`/api/profiles/${userId}`)
         .then(res => {

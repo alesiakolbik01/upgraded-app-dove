@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
-const multer = require('multer');
 const userService = require('../lib/services/user');
 const profileService = require('../lib/services/profile');
 const hash = require('../lib/hash');
@@ -10,23 +9,10 @@ const validateRegisterInput = require('../validation/register');
 const validateLoginInput = require('../validation/login');
 
 const SECRET = '280a6cde-5919-4b49-bb21-fbc6e9d30251';
-const UPLOAD_FOLDER = 'uploads/';
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, UPLOAD_FOLDER)
-    },
-    filename: function (req, file, cb) {
-        cb(null, `${Date.now()}_${file.originalname}`);
-    }
-});
+router.post('/register', async (req, res) => {
 
-const upload = multer({storage: storage});
-
-router.post('/register', upload.single('file'), async function (req, res) {
-    const userData = JSON.parse(req.body.user);
-    userData.image = req.file;
-
+    const userData = req.body;
     const {errors, isValid} = validateRegisterInput(userData);
 
     if (!isValid) {
@@ -38,7 +24,7 @@ router.post('/register', upload.single('file'), async function (req, res) {
         if (user) {
             return res.status(400).json({name: 'User name already exists'});
         } else {
-            userData.imagePath = userData.image.filename;
+            userData.imagePath = userData.image;
             userData.password = await hash.generate(userData.password);
             const user = await userService.save(userData);
             const profile = await profileService.save(user._id, userData);
@@ -84,7 +70,6 @@ router.post('/login', async (req, res) => {
             return res.status(400).json({password: 'Incorrect Password'});
         }
     } catch (e) {
-        console.log(e);
         res.status(500).json({error: e.message});
     }
 });

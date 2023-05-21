@@ -14,7 +14,7 @@ export const HomeDefaultPage = () =>{
                 <div className="row align-items-center">
                     <div className="col-12">
                         <h1 className={'header-main-page text-info text-center font-weight-light'}>
-                            Знакомьтесь.<br/>Общайтесь.Встречайтесь.</h1>
+                            Знакомьтесь.<br/>Общайтесь. Встречайтесь.</h1>
                     </div>
                     <div className="col-12 d-flex justify-content-center mt-sm-3">
                     </div>

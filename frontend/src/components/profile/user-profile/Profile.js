@@ -20,7 +20,7 @@ class Profile extends React.PureComponent {
             aboutSelf:PropTypes.string,
             search:PropTypes.string,
             age:PropTypes.number.isRequired,
-            image:PropTypes.string.isRequired
+            imagePath:PropTypes.string.isRequired
         }),
         errors:PropTypes.object.isRequired,
         formIsValid:PropTypes.bool.isRequired,
@@ -48,11 +48,12 @@ class Profile extends React.PureComponent {
     render() {
         const profile = this.props.profile;
         const {errors} = this.state;
+  
         return (
             <div className='col-9 height-600'>
                 <div className="col">
                     <div className='row'>
-                        <div className='col-4'><img src={profile.image} style={{}} alt='' className={'rounded w-100'}/>
+                        <div className='col-4'><img src={profile.imagePath} style={{}} alt='' className={'rounded w-100'}/>
                             <p>Ваше фото</p>
                         </div>
                         <div className='col'>

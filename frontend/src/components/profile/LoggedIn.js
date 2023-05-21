@@ -73,7 +73,7 @@ class LoggedIn extends React.Component {
                             <div className='row'>
                                 <div className='col-4 d-flex justify-content-center align-items-center'>
                                     <img className='rounded-circle w-100'
-                                         src={profile.image}
+                                         src={profile.imagePath}
                                          alt='avatar'/>
                                 </div>
                                 <div className='col-6'>

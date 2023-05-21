@@ -38,26 +38,41 @@ class Register extends Component {
         e.preventDefault();
         const firstName = this.state.firstName.trim();
         const lastName = this.state.lastName.trim();
-        const user = {
+        const data = {
             name: this.state.name,
             password: this.state.password,
             password_confirm: this.state.password_confirm,
             firstName: firstName,
             lastName: lastName,
-            age:this.state.age
+            age:this.state.age,
+            image:this.state.image
         };
-        const formData = new FormData();
-        if(!this.state.image){
-            this.setState({errors:{image:'Should select the photo'}});
-            return;
-        }
-        formData.append('file', this.state.image, this.state.image.name);
-        formData.append('user', JSON.stringify(user));
-        this.props.registerUser(formData, this.props.history);
+      
+        this.props.registerUser(data, this.props.history);
     }
 
-    handleFileSelect =(event) =>{
-        this.setState({image: event.target.files[0]})
+    convertBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+          const fileReader = new FileReader();
+          fileReader.readAsDataURL(file)
+          fileReader.onload = () => {
+            resolve(fileReader.result);
+          }
+          fileReader.onerror = (error) => {
+            reject(error);
+          }
+        })
+    }
+
+    handleFileRead = async (event) => {
+        const file = event.target.files[0];
+        const base64 = await this.convertBase64(file);
+        console.log(base64);
+        this.setState({image: base64})
+    }
+
+    handleFileSelect = (event) =>{
+        this.setState({image: event.target.value})
     };
 
     componentWillReceiveProps(nextProps) {
@@ -70,6 +85,7 @@ class Register extends Component {
             });
         }
     }
+
     componentDidMount() {
         if(this.props.auth.isAuthenticated) {
             this.props.history.push('/');
@@ -155,17 +171,19 @@ class Register extends Component {
                         {errors.age && (<div className="invalid-feedback">{errors.age}</div>)}
                     </div>
                         <div className="form-group custom-file">
-                            <input type="file"
-                                   multiple
-                                   className={classnames('custom-file-input', {
-                                       'is-invalid': errors.image
-                                   })}
-                                   id="inputGroupFile04"
-                                   accept='image/*,image/jpeg'
-                                   aria-describedby="inputGroupFileAddon04"
-                                   onChange={ this.handleFileSelect}
+                            <input
+                                id="inputGroupFile04"
+                                className={classnames('form-image-upload', {
+                                    'is-invalid': errors.image
+                                })}
+                                type="file"
+                                accept = 'image/*, .xlsx, .xls, .csv, .pdf, .pptx, .pptm, .ppt' 
+                                required
+                                name="originalFileName"
+                                onChange={this.handleFileRead}
+                                size="small"
+                                variant="standard"
                             />
-                                <label className="custom-file-label" htmlFor="inputGroupFile04">Выбрать фото</label>
                             {errors.image && (<div className="invalid-feedback">{errors.image}</div>)}
                         </div>
 

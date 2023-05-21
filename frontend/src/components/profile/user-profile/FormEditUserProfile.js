@@ -27,9 +27,25 @@ class FormEditUserProfile extends React.Component {
         })
     };
 
-    handleFileSelect =(event) =>{
-        this.setState({image: event.target.files[0]})
-    };
+    convertBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+          const fileReader = new FileReader();
+          fileReader.readAsDataURL(file)
+          fileReader.onload = () => {
+            resolve(fileReader.result);
+          }
+          fileReader.onerror = (error) => {
+            reject(error);
+          }
+        })
+    }
+
+    handleFileRead = async (event) => {
+        const file = event.target.files[0];
+        const base64 = await this.convertBase64(file);
+        console.log(base64);
+        this.setState({image: base64})
+    }
 
     handleClickSubmit = (e) => {
         e.preventDefault();
@@ -40,15 +56,13 @@ class FormEditUserProfile extends React.Component {
             gender: this.userGender.value,
             profession: this.userProf.value,
             aboutSelf: this.userAboutText.value,
-            search: this.userSearch.value
+            search: this.userSearch.value,
+            image:this.state.image
         };
-        const formData = new FormData();
-        if(this.state.image){
-            formData.append('file',  this.state.image, this.state.image.name);
-        }
-        formData.append('profile', JSON.stringify(userData));
-        this.props.updateUserProfile(this.props.profile._id, formData);
+
+        this.props.updateUserProfile(this.props.profile._id, userData);
     };
+    
     handleCloseForm = ()=>{
         this.props.closeForm();
     };
@@ -125,16 +139,19 @@ class FormEditUserProfile extends React.Component {
                         </select>
                     </div>
                     <div className="form-group custom-file">
-                        <input type="file"
-                               multiple
-                               className={classnames('custom-file-input', {
-                                   'is-invalid': errors.image
-                               })}
-                               id="inputImage"
-                               accept='image/*,image/jpeg'
-                               aria-describedby="inputGroupFileAddon04"
-                               onChange={ this.handleFileSelect}/>
-                        <label className="custom-file-label" htmlFor="inputImage">Выбрать фото</label>
+                         <input
+                                id="inputGroupFile04"
+                                className={classnames('form-image-upload', {
+                                    'is-invalid': errors.image
+                                })}
+                                type="file"
+                                accept = 'image/*, .xlsx, .xls, .csv, .pdf, .pptx, .pptm, .ppt' 
+                                required
+                                name="originalFileName"
+                                onChange={this.handleFileRead}
+                                size="small"
+                                variant="standard"
+                            />
                         {errors.image && (<div className="invalid-feedback">{errors.image}</div>)}
                     </div>
                     <div className="form-group custom-file mt-3">

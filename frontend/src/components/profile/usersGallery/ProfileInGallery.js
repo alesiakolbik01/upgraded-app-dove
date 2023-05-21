@@ -17,7 +17,7 @@ class ProfileInGallery extends React.PureComponent {
             aboutSelf: PropTypes.string,
             search: PropTypes.string,
             age: PropTypes.number.isRequired,
-            image: PropTypes.string.isRequired
+            imagePath: PropTypes.string.isRequired
         }),
 
     };
@@ -66,7 +66,7 @@ class ProfileInGallery extends React.PureComponent {
                             <div className={(this.state.like) ? 'heart is_animating' : 'heart'}></div>
                         </span>
                     </div>
-                    <img src={this.props.profile.image} className="img-fluid" style={{width: '100%'}} alt=""/>
+                    <img src={this.props.profile.imagePath} className="img-fluid" style={{width: '100%'}} alt=""/>
                 </div>
                 <UserProfileInfo profile={this.props.profile}/>
             </div>)
