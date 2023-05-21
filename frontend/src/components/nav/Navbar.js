@@ -39,17 +39,17 @@ class Navbar extends Component {
             </ul>
         );
         const guestLinks = (
-            <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                    <Link className="nav-link" to="/register">Регестрация</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/login">Войти</Link>
-                </li>
-            </ul>
+                <ul className="navbar-nav ml-auto">
+                    <li className='nav-item'>
+                        <Link className="nav-link" to="/register">Регестрация</Link>
+                    </li>
+                    <li className='nav-item'>
+                        <Link className="nav-link" to="/login">Войти</Link>
+                    </li>
+                </ul>
         );
         return(
-            <nav className="header navbar navbar-expand-lg navbar-light">
+            <nav className="header navbar navbar-expand-lg bg-body-tertiary justify-content-between p-3">
                 <Link className="navbar-brand" to="/">
                     <div className='row'>
                     <div className='col-6'>
@@ -60,9 +60,7 @@ class Navbar extends Component {
                     </div>
                 </div>
                 </Link>
-                <div className="navbar navbar-items">
-                    {isAuthenticated ? authLinks : guestLinks}
-                </div>
+                {isAuthenticated ? authLinks : guestLinks}
             </nav>
         )
     }

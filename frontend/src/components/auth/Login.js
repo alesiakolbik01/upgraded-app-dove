@@ -59,7 +59,7 @@ class Login extends Component {
             <div className="container" style={{ marginTop: '50px', width: '700px'}}>
                 <h2 className='text-info' style={{marginBottom: '40px'}}>Авторизация</h2>
                 <form onSubmit={ this.handleSubmit }>
-                    <div className="form-group">
+                    <div className="form-group mb-3">
                         <input
                             type="text"
                             placeholder="Логин"
@@ -72,7 +72,7 @@ class Login extends Component {
                         />
                         {errors.name && (<div className="invalid-feedback">{errors.name}</div>)}
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mb-3">
                         <input
                             type="password"
                             placeholder="Пароль"
@@ -85,7 +85,7 @@ class Login extends Component {
                         />
                         {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mb-3">
                     <ButtonSubmit text='Войти'/>
                     </div>
                 </form>

@@ -21,8 +21,8 @@ html, body, #root, .router {
     position: relative;
 }
 
-.app, .footer {
-    background: #aefaff;
+.footer {
+    background: #142729;
 }
 
 .logo-dove {
@@ -82,20 +82,12 @@ html, body, #root, .router {
 }
 
 .header {
-    background: rgba(240, 248, 250, 1);
-    background: -moz-linear-gradient(top, rgba(240, 248, 250, 1) 0%, rgba(174, 250, 255, 1) 100%);
-    background: -webkit-linear-gradient(top, rgba(240, 248, 250, 1) 0%, rgba(174, 250, 255, 1) 100%);
-    background: -o-linear-gradient(top, rgba(240, 248, 250, 1) 0%, rgba(174, 250, 255, 1) 100%);
-    background: -ms-linear-gradient(top, rgba(240, 248, 250, 1) 0%, rgba(174, 250, 255, 1) 100%);
-    background: linear-gradient(to bottom, rgba(240, 248, 250, 1) 0%, rgba(174, 250, 255, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f8fa', endColorstr='#aefaff', GradientType=0);
+
 }
 
 /*анимация загрузки
  */
 
-#cssload-pgloading {
-}
 
 #cssload-pgloading:after {
     content: "";

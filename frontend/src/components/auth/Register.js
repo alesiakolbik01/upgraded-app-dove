@@ -97,7 +97,7 @@ class Register extends Component {
             <div className="container" style={{ marginTop: '50px', width: '700px'}}>
                 <h2 className='text-info' style={{marginBottom: '40px'}}>Регестрация</h2>
                 <form onSubmit={ this.handleSubmit }>
-                    <div className="form-group">
+                    <div className="form-group mb-3">
                         <input
                             type="text"
                             placeholder="Логин"
@@ -110,7 +110,7 @@ class Register extends Component {
                         />
                         {errors.name && (<div className="invalid-feedback">{errors.name}</div>)}
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mb-3">
                         <input
                             type="password"
                             placeholder="Пароль"
@@ -123,7 +123,7 @@ class Register extends Component {
                         />
                         {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mb-3">
                         <input
                             type="password"
                             placeholder="Введите пароль еще раз"
@@ -137,7 +137,7 @@ class Register extends Component {
                         {errors.password_confirm && (<div className="invalid-feedback">{errors.password_confirm}</div>)}
                     </div>
                     <hr/>
-                    <div className="form-group">
+                    <div className="form-group mb-3">
                         <input type="text"
                                className={classnames('form-control', {
                                    'is-invalid': errors.firstName
@@ -148,7 +148,7 @@ class Register extends Component {
                                value={this.state.firstName}/>
                         {errors.firstName && (<div className="invalid-feedback">{errors.firstName}</div>)}
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mb-3">
                         <input type="text"
                                className={classnames('form-control', {
                                    'is-invalid': errors.lastName
@@ -159,7 +159,7 @@ class Register extends Component {
                                value={this.state.lastName}/>
                         {errors.lastName && (<div className="invalid-feedback">{errors.lastName}</div>)}
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mb-3">
                         <input type="number"
                                className={classnames('form-control', {
                                    'is-invalid': errors.age
@@ -170,7 +170,7 @@ class Register extends Component {
                                value={this.state.age}/>
                         {errors.age && (<div className="invalid-feedback">{errors.age}</div>)}
                     </div>
-                        <div className="form-group custom-file">
+                        <div className="form-group mb-3">
                             <input
                                 id="inputGroupFile04"
                                 className={classnames('form-image-upload', {
