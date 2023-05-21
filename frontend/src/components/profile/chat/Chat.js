@@ -90,34 +90,38 @@ class Chat extends React.PureComponent {
         }
         return (
             <div className='col border-left border-grey'>
-                <div className='row border-bottom border-grey'>
-                    <div className="col-3">
-                        <div
-                            className="row p-3 border-bottom border-grey text-info height-60px align-items-center">Пользователи
-                        </div>
-                        <div className='row users'>
-                            <div className='col'>
-                                {this.props.profiles.map(profile => {
-                                    return (<ItemList key={profile.user}
-                                                      userName={profile.firstName}
-                                                      active={(profile.user === this.state.activeTab)}
-                                                      id={profile.user}
-                                                      click={this.handleClickTab}/>)
-                                })}
+                { this.props.profiles.length > 0 ? 
+                    <div className='row border-bottom border-grey'>
+                        <div className="col-3">
+                            <div
+                                className="row p-3 border-bottom border-grey text-info height-60px align-items-center">Пользователи
+                            </div>
+                            <div className='row users'>
+                                <div className='col'>
+                                    {this.props.profiles.map(profile => {
+                                        return (<ItemList key={profile.user}
+                                                        userName={profile.firstName}
+                                                        active={(profile.user === this.state.activeTab)}
+                                                        id={profile.user}
+                                                        click={this.handleClickTab}/>)
+                                    })}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <MessagesBlock chatId={this.props.currentChatId}
-                                   userName={profile.firstName}
-                                   id={profile.user}
-                                   image={profile.image}
-                                   gender={profile.gender}
-                                   activeTab={this.state.activeTab}
-                                   onSendMessage={this.handleSendMessage}
-                                   chatHistory={this.props.chatHistory}
-                                   chatHistoryId ={this.props.chatHistoryId}
-                    />
-                </div>
+                        <MessagesBlock chatId={this.props.currentChatId}
+                                    userName={profile.firstName}
+                                    id={profile.user}
+                                    image={profile.image}
+                                    gender={profile.gender}
+                                    activeTab={this.state.activeTab}
+                                    onSendMessage={this.handleSendMessage}
+                                    chatHistory={this.props.chatHistory}
+                                    chatHistoryId ={this.props.chatHistoryId}
+                        />
+                    </div> : <div className="row height-600">
+                                <h5 className='text-center text-secondary text-uppercase mt-5 ml-5'>Здесь пока ничего нет</h5>
+                            </div>
+                }
             </div>
         )
     }

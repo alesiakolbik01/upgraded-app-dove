@@ -82,10 +82,6 @@ html, body, #root, .router {
     box-shadow: 0 3px 20px 0 #ddd;;
 }
 
-.header {
-
-}
-
 /*анимация загрузки
  */
 
@@ -138,7 +134,7 @@ html, body, #root, .router {
     left: 50%;
     top: 0;
     margin: 0 0 0 -.1em;
-    background: rgb(0, 193, 118);
+    background: rgb(36, 66, 121);
     transform-origin: 50% 250%;
     -o-transform-origin: 50% 250%;
     -ms-transform-origin: 50% 250%;
@@ -160,7 +156,7 @@ html, body, #root, .router {
     top: 50%;
     right: 0;
     margin: -.1em 0 0 0;
-    background: rgb(255, 0, 60);
+    background: rgb(43, 97, 199);
     transform-origin: -150% 50%;
     -o-transform-origin: -150% 50%;
     -ms-transform-origin: -150% 50%;
@@ -182,7 +178,7 @@ html, body, #root, .router {
     left: 50%;
     bottom: 0;
     margin: 0 0 0 -.1em;
-    background: rgb(250, 190, 40);
+    background: rgb(11, 60, 151);
     transform-origin: 50% -150%;
     -o-transform-origin: 50% -150%;
     -ms-transform-origin: 50% -150%;
@@ -204,7 +200,7 @@ html, body, #root, .router {
     top: 50%;
     left: 0;
     margin: -.1em 0 0 0;
-    background: rgb(136, 193, 0);
+    background: rgb(0, 68, 193);
     transform-origin: 250% 50%;
     -o-transform-origin: 250% 50%;
     -ms-transform-origin: 250% 50%;
@@ -549,12 +545,12 @@ html, body, #root, .router {
     justify-content: flex-start;
     align-self: stretch;
     height: 500px;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 .users{
     height: 600px;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 

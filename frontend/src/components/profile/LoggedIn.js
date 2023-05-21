@@ -66,7 +66,7 @@ class LoggedIn extends React.Component {
         }
         if (profile) {
             return (
-                <div className='container-fluid h-100 bg-lite-grey'>
+                <div className='container-fluid flex-grow-1 h-100 bg-lite-grey'>
                     { modal }
                     <div className='row pt-2 mb-5'>
                         <div className='col-3 bg-lite-grey text-truncate'>

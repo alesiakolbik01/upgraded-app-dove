@@ -79,13 +79,13 @@ class MessagesBlock extends React.PureComponent {
                     <div className='col'>
                         {(this.props.messageSendError) && <div className='text-danger border-danger'>
                             {this.props.messageSendError}</div>}
-                        <div className="input-group mb-3">
+                        {this.props.activeTab && <div className="input-group mb-3">
                             <input type="text" className="form-control rounded" placeholder="Введите сообщение..."
                                    aria-label="Recipient's username" aria-describedby="button-addon2"
                                    value={this.state.input}
                                    onChange={this.onInputMessage}
                                    onKeyPress={e => (e.key === 'Enter' ? this.onSubmit() : null)}/>
-                        </div>
+                        </div>}
                     </div>
                 </div>
             </div>

@@ -63,9 +63,9 @@ class Profile extends React.PureComponent {
                                                       errors={errors}/>)
                                 :
                                 (
-                                    <div>
+                                    <div className="d-flex flex-column-reverse align-items-start">
                                         <UserProfileInfo profile={profile}/>
-                                        <button type="submit" className="btn btn-primary float-lg-right btn-sm"
+                                        <button type="submit" className="btn btn-primary float-lg-right btn-sm align-self-end"
                                                 onClick={this.handleOpenForm}>Редактировать профиль
                                         </button>
                                     </div>

@@ -32,8 +32,6 @@ class Navbar extends Component {
         const authLinks = (
             <ul className="navbar-nav ml-auto">
                 <div className="nav-link" onClick={this.onLogout.bind(this)}>
-                    <img src={userLogout} alt={user.name}
-                    style={{ width: '25px', marginRight: '5px'}} />
                     Выйти
                 </div>
             </ul>
