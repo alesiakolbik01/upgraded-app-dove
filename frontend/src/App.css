@@ -16,6 +16,7 @@ html, body, #root, .router {
     justify-content: space-between;
     font-family:  Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
     background-color: #dee2e6;
+    font-size: 1rem!important;
 }
 
 #root {
@@ -28,6 +29,7 @@ html, body, #root, .router {
 
 .logo-dove {
     width: 80px;
+    border-radius: 50%;
 }
 
 .logo-big {
@@ -71,7 +73,7 @@ html, body, #root, .router {
 }
 
 .btn {
-    font-size: 0.7em !important;
+    font-size: 1rem !important;
 }
 
 .height-90 {
