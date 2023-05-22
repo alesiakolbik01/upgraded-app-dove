@@ -83,6 +83,10 @@ html, body, #root, .router {
     box-shadow: 0 3px 20px 0 #ddd;;
 }
 
+a.nav-link {
+    color: #6f757c;
+}
+
 /*анимация загрузки
  */
 
